@@ -1,0 +1,47 @@
+# .github/workflows/python-lint.yml
+
+name: Python Lint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/pyproject.toml'
+      - '**/.flake8'
+      - '**/setup.cfg'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/pyproject.toml'
+      - '**/.flake8'
+      - '**/setup.cfg'
+
+jobs:
+  python-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-python.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Python tools
+        run: pip install -r tools/requirements-python.txt
+
+      - name: Run Black
+        run: black --check .
+
+      - name: Run Flake8
+        run: flake8 .

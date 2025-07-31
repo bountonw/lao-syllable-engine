@@ -1,0 +1,33 @@
+name: Elixir Format
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'elixir/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'elixir/**'
+
+jobs:
+  elixir-format:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: elixir
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Elixir
+        uses: erlef/setup-beam@v1
+        with:
+          elixir-version: '1.18.4'
+          otp-version: '27'
+
+      - name: Get mix deps
+        run: mix deps.get
+
+      - name: Check code formatting
+        run: mix format --check-formatted
