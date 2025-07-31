@@ -1,10 +1,11 @@
+---
 name: Code Quality
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   python-lint:
@@ -59,7 +60,8 @@ jobs:
 
       - name: Install Taplo CLI
         run: |
-          curl -L -o taplo https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-full-linux-x86_64
+          curl -L -o taplo \
+            https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-full-linux-x86_64
           chmod +x taplo
           sudo mv taplo /usr/local/bin/taplo
 
