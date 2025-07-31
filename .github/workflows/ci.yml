@@ -56,8 +56,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y yamllint
-          curl -s https://packagecloud.io/install/repositories/tamasfe/taplo/script.deb.sh | sudo bash
-          sudo apt-get install -y taplo-cli
+          curl -sSf https://taplo.tamasfe.dev/install.sh | sh
+          sudo mv ~/.taplo/bin/taplo /usr/local/bin/
       - name: Lint YAML files
         run: yamllint .
       - name: Lint TOML files
