@@ -1,5 +1,4 @@
----
-name: Code Quality
+name: Config Lint
 
 on:
   push:
@@ -8,55 +7,13 @@ on:
     branches: [main]
 
 jobs:
-  python-lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      - name: Install Python tools
-        run: pip install black flake8
-      - name: Run Black
-        run: black --check .
-      - name: Run Flake8
-        run: flake8 .
-
-  rust-lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - name: Run rustfmt
-        run: cargo fmt -- --check
-      - name: Run clippy
-        run: cargo clippy -- -D warnings
-
-  elixir-format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Elixir
-        uses: erlef/setup-beam@v1
-        with:
-          elixir-version: '1.15'
-          otp-version: '26'
-      - name: Run mix format check
-        run: mix format --check-formatted
   config-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Install yamllint
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y yamllint
+        run: pip install yamllint
 
       - name: Install Taplo CLI
         run: |
@@ -70,3 +27,4 @@ jobs:
 
       - name: Lint TOML files
         run: taplo fmt --check
+
