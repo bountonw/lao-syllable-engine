@@ -57,10 +57,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y yamllint
 
-      - name: Install Taplo CLI via Action
-        uses: uncenter/setup-taplo@v1
-        with:
-          version: "0.10.0"
+      - name: Install Taplo CLI
+        run: |
+          curl -L -o taplo.tar.gz https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-full-linux-x86_64.tar.gz
+          tar -xzf taplo.tar.gz
+          chmod +x taplo
+          sudo mv taplo /usr/local/bin/taplo
 
       - name: Lint YAML files
         run: yamllint .
