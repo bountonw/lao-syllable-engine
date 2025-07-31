@@ -4,5 +4,7 @@ rules:
   line-length:
     max: 80
     level: warning
+
   truthy:
     level: warning
+  document-start: diable
