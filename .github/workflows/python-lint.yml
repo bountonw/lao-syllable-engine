@@ -1,72 +1,48 @@
----
-name: Code Quality
+# .github/workflows/python-lint.yml
+
+name: Python Lint
 
 on:
   push:
     branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/pyproject.toml'
+      - '**/.flake8'
+      - '**/setup.cfg'
   pull_request:
     branches: [main]
+    paths:
+      - '**/*.py'
+      - '**/pyproject.toml'
+      - '**/.flake8'
+      - '**/setup.cfg'
 
 jobs:
   python-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-python.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install Python tools
-        run: pip install black flake8
+        run: pip install -r tools/requirements-python.txt
+
       - name: Run Black
         run: black --check .
+
       - name: Run Flake8
         run: flake8 .
 
-  rust-lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - name: Run rustfmt
-        run: cargo fmt -- --check
-      - name: Run clippy
-        run: cargo clippy -- -D warnings
-
-  elixir-format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Elixir
-        uses: erlef/setup-beam@v1
-        with:
-          elixir-version: '1.15'
-          otp-version: '26'
-      - name: Run mix format check
-        run: mix format --check-formatted
-  config-lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install yamllint
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y yamllint
-
-      - name: Install Taplo CLI
-        run: |
-          curl -L -o taplo.gz https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-linux-x86_64.gz
-          gunzip taplo.gz
-          chmod +x taplo
-          sudo mv taplo /usr/local/bin/taplo
-
-      - name: Lint YAML files
-        run: yamllint .
-
-      - name: Lint TOML files
-        run: taplo fmt --check
