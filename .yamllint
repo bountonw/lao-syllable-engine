@@ -5,4 +5,4 @@ rules:
     max: 80
     level: warning
   truthy:
-    level: ignore
+    level: warning
