@@ -1,0 +1,35 @@
+name: Python Security
+
+on:
+  pull_request:
+    branches: [main]
+
+  push:
+    branches: ["**"]
+    paths:
+      - '**/*.py'
+      - '**/requirements*.txt'
+      - '**/*.cfg'
+      - '**/*.toml'
+      - 'tools/**'
+      - '.github/workflows/python-security.yml'
+
+jobs:
+  security:
+    name: Python Security (Safety)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install Safety
+        run: pip install --require-hashes -r tools/requirements-security.txt
+
+      - name: Run Safety
+        run: safety check -r tools/requirements-python.txt --full-report
+

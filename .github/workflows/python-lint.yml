@@ -1,5 +1,3 @@
-# .github/workflows/python-lint.yml
-
 name: Python Lint
 
 on:
