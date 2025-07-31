@@ -19,4 +19,3 @@ defmodule Placeholder.MixProject do
 
   defp deps, do: []
 end
-
