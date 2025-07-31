@@ -35,4 +35,3 @@ jobs:
 
       - name: Lint TOML files
         run: taplo fmt --check
-

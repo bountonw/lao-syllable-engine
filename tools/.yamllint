@@ -7,4 +7,5 @@ rules:
 
   truthy:
     level: warning
+
   document-start: disable

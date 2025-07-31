@@ -31,4 +31,3 @@ jobs:
 
       - name: Run cargo clippy
         run: cargo clippy -- -D warnings
-
