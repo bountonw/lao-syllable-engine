@@ -43,3 +43,6 @@ jobs:
 
       - name: Run Flake8
         run: flake8 .
+
+      - name: Run Bandid
+        run: bandit -r .
