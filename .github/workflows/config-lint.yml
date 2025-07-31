@@ -31,7 +31,7 @@ jobs:
           sudo mv taplo /usr/local/bin/taplo
 
       - name: Lint YAML files
-        run: yamllint .
+        run: yamllint -c tools/.yamllint .
 
       - name: Lint TOML files
         run: taplo fmt --check
