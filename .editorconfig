@@ -1,0 +1,103 @@
+# .editorconfig
+# Enforce consistent formatting across editors and languages.
+#
+# Default to 4-space indentation for readability and alignment with
+# logic-heavy languages (Python, Rust, C/C++).
+#
+# Common markup and config formats (YAML, HTML, XML, etc.) are
+# explicitly overridden to use 2-space indentation for clarity and
+# compactness.
+#
+# Makefiles and Markdown have special handling: Make requires tabs;
+# Markdown preserves trailing spaces for hard line breaks.
+
+root = true
+
+# -------------------------------------------------
+# Global defaults (applied to all file types unless overridden)
+# -------------------------------------------------
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+# -------------------------------------------------
+# Markdown (.md) — allow trailing spaces for hard line breaks
+# -------------------------------------------------
+[*.md]
+trim_trailing_whitespace = false
+
+# -------------------------------------------------
+# Makefiles — must use tabs for indentation
+# -------------------------------------------------
+[Makefile]
+indent_style = tab
+
+# -------------------------------------------------
+# Python (.py) — PEP 8 standard: 4 spaces
+# -------------------------------------------------
+[*.py]
+indent_size = 4
+
+# -------------------------------------------------
+# Rust (.rs) — rustfmt standard: 4 spaces
+# -------------------------------------------------
+[*.rs]
+indent_size = 4
+
+# -------------------------------------------------
+# LaTeX (.tex) — project preference: 2 spaces
+# -------------------------------------------------
+[*.tex]
+indent_size = 2
+
+# -------------------------------------------------
+# Elixir (.ex, .exs) — community standard: 2 spaces
+# -------------------------------------------------
+[*.ex]
+indent_size = 2
+
+[*.exs]
+indent_size = 2
+
+# -------------------------------------------------
+# Config formats — YAML, TOML, JSON: 2 spaces
+# -------------------------------------------------
+[*.yaml]
+indent_size = 2
+
+[*.yml]
+indent_size = 2
+
+[*.toml]
+indent_size = 2
+
+[*.json]
+indent_size = 2
+
+# -------------------------------------------------
+# Markup — HTML and XML: 2 spaces
+# -------------------------------------------------
+[*.html]
+indent_size = 2
+
+[*.xml]
+indent_size = 2
+
+# -------------------------------------------------
+# C / C++ — community standard: 4 spaces
+# -------------------------------------------------
+[*.c]
+indent_size = 4
+
+[*.h]
+indent_size = 4
+
+[*.cpp]
+indent_size = 4
+
+[*.hpp]
+indent_size = 4
