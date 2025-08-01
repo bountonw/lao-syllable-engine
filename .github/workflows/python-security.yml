@@ -31,12 +31,13 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-security.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-python-security.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install Safety
-        run: pip install --require-hashes -r tools/requirements-security.txt
+        run: pip install --require-hashes -r tools/requirements-python-security.txt
 
       - name: Run Safety
-        run: safety check -r tools/requirements-python.txt --full-report
+        run: safety check -r tools/requirements-python-security.txt --full-report
+
