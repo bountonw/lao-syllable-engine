@@ -40,4 +40,3 @@ jobs:
 
       - name: Run Safety
         run: safety check -r tools/requirements-python-security.txt --full-report
-
