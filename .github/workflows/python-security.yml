@@ -27,6 +27,14 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-security.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install Safety
         run: pip install --require-hashes -r tools/requirements-security.txt
 
