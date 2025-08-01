@@ -31,12 +31,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-python.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-python-lint.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install Python tools
-        run: pip install -r tools/requirements-python.txt
+          pip install --require-hashes -r tools/requirements-python-lint.txt
 
       - name: Run isort
         run: isort --check-only --diff .
@@ -47,5 +47,5 @@ jobs:
       - name: Run Flake8
         run: flake8 .
 
-      - name: Run Bandid
+      - name: Run Bandit
         run: bandit -r .
