@@ -1,4 +1,4 @@
-name: Config Lint
+name: YAML and TOML Lint
 
 on:
   push:
@@ -7,28 +7,27 @@ on:
     branches: [main]
 
 jobs:
-  config-lint:
+  yaml-toml-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v3
 
       - name: Cache pip
         uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-config.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-yamllint.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install yamllint
-        run: pip install -r tools/requirements-config.txt
+        run: pip install -r tools/requirements-yamllint.txt
 
       - name: Install Taplo CLI
-        run: |
-          curl -L -o taplo.gz https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-linux-x86_64.gz
-          gunzip taplo.gz
-          chmod +x taplo
-          sudo mv taplo /usr/local/bin/taplo
+        uses: taiki-e/install-action@v2
+        with:
+          tool: taplo-cli@0.10.0
 
       - name: Lint YAML files
         run: yamllint -c tools/.yamllint .

@@ -1,0 +1,8 @@
+[bandit]
+exclude = .venv
+severity-level = MEDIUM
+targets = .
+# Uncomment to skip specific noisy rules
+# skips = B101,B311
+# Output format is plain by default, but you can enable JSON, XML, etc., if needed.
+# format = json
