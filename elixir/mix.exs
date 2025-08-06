@@ -23,4 +23,3 @@ defmodule Placeholder.MixProject do
     ]
   end
 end
-
