@@ -38,14 +38,14 @@ __pycache__/
 *.pyc
 
 # Elixir
-/elixir/_build/           # compiled files
-/elixir/deps/             # dependencies
-/elixir/cover/            # coverage output
+elixir/_build/           # compiled files
+elixir/deps/             # dependencies
+elixir/cover/            # coverage output
 *.ez              # compiled archives
 erl_crash.dump       # crash dump files
 
 # Rust
-/rust/target/           # build artifacts
+rust/target/           # build artifacts
 *.rs.bk         # backup files
 
 # Thumbnails
