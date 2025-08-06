@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'elixir/**'
+      - '.github/workflows/elixir-lint.yml'
   pull_request:
     branches: [main]
     paths:
@@ -26,12 +27,14 @@ jobs:
           elixir-version: '1.18.4'
           otp-version: '27'
 
-      - name: Cache mix dependencies
+      - name: Cache Mix and Hex
         uses: actions/cache@v3
         with:
           path: |
             ~/.mix
+            ~/.hex
             elixir/_build
+            elixir/deps
           key: ${{ runner.os }}-mix-${{ hashFiles('elixir/mix.lock') }}
           restore-keys: |
             ${{ runner.os }}-mix-
