@@ -39,7 +39,7 @@ __pycache__/
 
 # Elixir
 elixir/deps/
-elixir/guild/
+elixir/_build/
 elixir/cover/
 *.ez              # compiled archives
 erl_crash.dump       # crash dump files
