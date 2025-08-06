@@ -38,9 +38,9 @@ __pycache__/
 *.pyc
 
 # Elixir
-_build/           # compiled files
-deps/             # dependencies
-cover/            # coverage output
+elixir/_build/           # compiled files
+elixir/deps/             # dependencies
+elixir/cover/            # coverage output
 *.ez              # compiled archives
 erl_crash.dump       # crash dump files
 
