@@ -37,6 +37,12 @@
 __pycache__/
 *.pyc
 
+# Elixir build artifacts etc.
+/elixir/_build/
+/elixir/deps/
+/elixir/.elixir_ls/
+*.ez
+
 # Thumbnails
 ._*
 
