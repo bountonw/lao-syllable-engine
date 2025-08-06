@@ -1,0 +1,48 @@
+name: Rust Security
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "rust/**"
+      - ".github/workflows/rust-security.yml"
+  pull_request:
+    branches: [main]
+
+jobs:
+  rust-security:
+    name: Rust Security (cargo-audit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Cache Cargo (audit + registry + target)
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry
+            ~/.cargo/git
+            rust/target
+          key: ${{ runner.os }}-cargo-audit-${{ hashFiles('rust/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-audit-
+
+      - name: Install cargo-audit
+        run: |
+          if ! command -v cargo-audit &> /dev/null; then
+            cargo install cargo-audit
+          fi
+
+      - name: Audit dependencies
+        run: cargo audit

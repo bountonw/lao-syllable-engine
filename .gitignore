@@ -37,6 +37,17 @@
 __pycache__/
 *.pyc
 
+# Elixir
+elixir/deps/
+elixir/_build/
+elixir/cover/
+*.ez              # compiled archives
+erl_crash.dump       # crash dump files
+
+# Rust
+rust/target
+*.rs.bk         # backup files
+
 # Thumbnails
 ._*
 
@@ -336,18 +347,6 @@ TSWLatexianTemp*
 
 # NodeJS dependencies folder
 node_modules
-
-# Rust
-/target/           # build artifacts
-**/*.rs.bk         # backup files
-Cargo.lock         # dependency lock file (omit if you're building libraries)
-
-# Elixir
-/_build/           # compiled files
-/deps/             # dependencies
-/erl_crash.dump    # crash dump files
-*.ez               # compiled archives
-/cover/            # coverage output
 
 # C / C++
 *.o              # Object files
