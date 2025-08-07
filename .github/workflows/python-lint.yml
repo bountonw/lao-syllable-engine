@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install Python tools
-          pip install --require-hashes -r tools/requirements-python-lint.txt
+        run:  pip install --require-hashes -r tools/requirements-python-lint.txt
 
       - name: Run isort
         run: isort --check-only --diff .
