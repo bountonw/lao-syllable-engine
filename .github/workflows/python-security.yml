@@ -16,7 +16,7 @@ on:
 
 jobs:
   security:
-    name: Python Security (Safety)
+    name: Python Security
     runs-on: ubuntu-latest
 
     steps:
