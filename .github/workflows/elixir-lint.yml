@@ -28,7 +28,7 @@ jobs:
           otp-version: '27'
 
       - name: Cache Mix and Hex
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.mix
