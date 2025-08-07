@@ -11,7 +11,7 @@ on:
 
 jobs:
   rust-security:
-    name: Rust Security (cargo-audit)
+    name: Rust Security
     runs-on: ubuntu-latest
     defaults:
       run:

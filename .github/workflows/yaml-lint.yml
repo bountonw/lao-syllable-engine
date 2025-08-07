@@ -8,6 +8,7 @@ on:
 
 jobs:
   yaml-toml-lint:
+    name: YAML and TOML Lint
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
