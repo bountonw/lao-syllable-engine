@@ -1,10 +1,17 @@
 version: 2
 updates:
-  - package-ecosystem: "pip"
-    directory: "/tools"
+  - package-ecosystem: "github-actions"
+    directory: "/"  # Must be root
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 5
+    rebase-strategy: "auto"
+
+  - package-ecosystem: "pip"
+    directory: "/tools"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
     rebase-strategy: "auto"
     ignore:
       - dependency-name: "*"
