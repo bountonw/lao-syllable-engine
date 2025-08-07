@@ -12,6 +12,7 @@ on:
 
 jobs:
   rust-lint:
+    name: Run Rust Lint
     runs-on: ubuntu-latest
     defaults:
       run:
