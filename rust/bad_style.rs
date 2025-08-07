@@ -1,4 +1,3 @@
-fn main( ) {
-    let message = "Hello, Rust!";
-    println!(  "{}", message );
+fn main() {
+    let x = 5;
 }
