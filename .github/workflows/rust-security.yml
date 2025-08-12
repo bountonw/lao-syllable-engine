@@ -11,14 +11,14 @@ on:
 
 jobs:
   rust-security:
-    name: Rust Security (cargo-audit)
+    name: Rust Security
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: rust
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
@@ -27,7 +27,7 @@ jobs:
           override: true
 
       - name: Cache Cargo (audit + registry + target)
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/bin/

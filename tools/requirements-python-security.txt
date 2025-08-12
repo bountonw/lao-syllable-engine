@@ -19,7 +19,7 @@ authlib==1.6.1 \
 bandit==1.8.6 \
     --hash=sha256:3348e934d736fcdb68b6aa4030487097e23a501adf3e7827b63658df464dddd0 \
     --hash=sha256:dbfe9c25fc6961c2078593de55fd19f2559f9e45b99f1272341f5b95dea4e56b
-    # via -r tools/requirements-python-security.in
+    # via -r requirements-python-security.in
 certifi==2025.7.14 \
     --hash=sha256:6b31f564a415d79ee77df69d757bb49a5bb53bd9f756cbbe24394ffd6fc1f4b2 \
     --hash=sha256:8ea99dbdfaaf2ba2f9bac77b9249ef62ec5218e7c2b2e903378ed5fccf765995
@@ -268,7 +268,7 @@ idna==3.10 \
 isort==6.0.1 \
     --hash=sha256:1cb5df28dfbc742e490c5e41bad6da41b805b0a8be7bc93cd0fb2a8a890ac450 \
     --hash=sha256:2dc5d7f65c9678d94c88dfc29161a320eec67328bc97aad576874cb4be1e9615
-    # via -r tools/requirements-python-security.in
+    # via -r requirements-python-security.in
 jinja2==3.1.6 \
     --hash=sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d \
     --hash=sha256:85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67
@@ -702,7 +702,7 @@ ruamel-yaml-clib==0.2.12 \
 safety==3.6.0 \
     --hash=sha256:9cddbfd7a578b35e4d29df4fb6e3808425ed792a09d81400a5b7f4b4535ef666 \
     --hash=sha256:a820f827699f83d3d5c2faab24c0ac4d094911931503180847d97942c0a6f7e3
-    # via -r tools/requirements-python-security.in
+    # via -r requirements-python-security.in
 safety-schemas==0.0.14 \
     --hash=sha256:0bf6fc4aa5e474651b714cc9e427c862792946bf052b61d5c7bec4eac4c0f254 \
     --hash=sha256:49953f7a59e919572be25595a8946f9cbbcd2066fe3e160c9467d9d1d6d7af6a

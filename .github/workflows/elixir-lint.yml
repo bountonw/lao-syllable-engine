@@ -13,13 +13,14 @@ on:
 
 jobs:
   elixir-lint:
+    name: Elixir Lint
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: elixir
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Set up Elixir
         uses: erlef/setup-beam@v1
@@ -28,7 +29,7 @@ jobs:
           otp-version: '27'
 
       - name: Cache Mix and Hex
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.mix

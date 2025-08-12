@@ -18,17 +18,18 @@ on:
 
 jobs:
   python-lint:
+    name: Python Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.13'
 
       - name: Cache pip
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('tools/requirements-python-lint.txt') }}
@@ -36,7 +37,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install Python tools
-          pip install --require-hashes -r tools/requirements-python-lint.txt
+        run: pip install --require-hashes -r tools/requirements-python-lint.txt
 
       - name: Run isort
         run: isort --check-only --diff .

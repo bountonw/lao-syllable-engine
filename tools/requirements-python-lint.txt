@@ -4,10 +4,10 @@
 #
 #    pip-compile --allow-unsafe --generate-hashes tools/requirements-python-lint.in
 #
-bandit==1.7.7 \
-    --hash=sha256:17e60786a7ea3c9ec84569fd5aee09936d116cb0cb43151023258340dbffb7ed \
-    --hash=sha256:527906bec6088cb499aae31bc962864b4e77569e9d529ee51df3a93b4b8ab28a
-    # via -r tools/requirements-python-lint.in
+bandit==1.8.6 \
+    --hash=sha256:3348e934d736fcdb68b6aa4030487097e23a501adf3e7827b63658df464dddd0 \
+    --hash=sha256:dbfe9c25fc6961c2078593de55fd19f2559f9e45b99f1272341f5b95dea4e56b
+    # via -r requirements-python-lint.in
 black==25.1.0 \
     --hash=sha256:030b9759066a4ee5e5aca28c3c77f9c64789cdd4de8ac1df642c40b708be6171 \
     --hash=sha256:055e59b198df7ac0b7efca5ad7ff2516bca343276c466be72eb04a3bcc1f82d7 \
@@ -31,7 +31,7 @@ black==25.1.0 \
     --hash=sha256:db8ea9917d6f8fc62abd90d944920d95e73c83a5ee3383493e35d271aca872e9 \
     --hash=sha256:ea0213189960bda9cf99be5b8c8ce66bb054af5e9e861249cd23471bd7b0b3ba \
     --hash=sha256:f3df5f1bf91d36002b0a75389ca8663510cf0531cca8aa5c1ef695b46d98655f
-    # via -r tools/requirements-python-lint.in
+    # via -r requirements-python-lint.in
 click==8.2.1 \
     --hash=sha256:27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202 \
     --hash=sha256:61a3265b914e850b85317d0b3109c7f8cd35a670f963866005d6ef1d5175a12b
@@ -39,11 +39,11 @@ click==8.2.1 \
 flake8==7.3.0 \
     --hash=sha256:b9696257b9ce8beb888cdbe31cf885c90d31928fe202be0889a7cdafad32f01e \
     --hash=sha256:fe044858146b9fc69b551a4b490d69cf960fcb78ad1edcb84e7fbb1b4a8e3872
-    # via -r tools/requirements-python-lint.in
+    # via -r requirements-python-lint.in
 isort==6.0.1 \
     --hash=sha256:1cb5df28dfbc742e490c5e41bad6da41b805b0a8be7bc93cd0fb2a8a890ac450 \
     --hash=sha256:2dc5d7f65c9678d94c88dfc29161a320eec67328bc97aad576874cb4be1e9615
-    # via -r tools/requirements-python-lint.in
+    # via -r requirements-python-lint.in
 markdown-it-py==3.0.0 \
     --hash=sha256:355216845c60bd96232cd8d8c40e8f9765cc86f46880e43a8fd22dc1a1a8cab1 \
     --hash=sha256:e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb
