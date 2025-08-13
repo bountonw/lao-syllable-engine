@@ -1,25 +1,16 @@
 name: Python Lint
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '**/*.py'
-      - '**/pyproject.toml'
-      - '**/.flake8'
-      - '**/setup.cfg'
   pull_request:
     branches: [main]
-    paths:
-      - '**/*.py'
-      - '**/pyproject.toml'
-      - '**/.flake8'
-      - '**/setup.cfg'
 
 jobs:
   python-lint:
     name: Python Lint
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
     steps:
       - uses: actions/checkout@v5
 
